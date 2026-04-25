@@ -5,6 +5,8 @@ import com.saucedemo.screenplay.ui.CarritoPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.questions.WebElementQuestion;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -28,7 +30,10 @@ public class CarritoStepDefinitions {
     @Then("she should see the product {string} in the cart")
     public void sheShouldSeeTheProductInTheCart(String producto) {
         OnStage.theActorInTheSpotlight().should(
-                seeThat(CarritoPage.PRODUCTO_EN_CARRITO.of(producto), isVisible())
+                seeThat(
+                        WebElementQuestion.the(CarritoPage.PRODUCTO_EN_CARRITO.of(producto)),
+                        isVisible()
+                )
         );
     }
 }
