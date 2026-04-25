@@ -1,4 +1,4 @@
-package edu.pe.cibertec.saucedemo.hooks;
+package com.saucedemo.hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
