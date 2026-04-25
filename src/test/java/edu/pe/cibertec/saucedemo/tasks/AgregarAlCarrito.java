@@ -20,10 +20,8 @@ public class AgregarAlCarrito implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        Target botonAgregar = Target.the("botón agregar al carrito")
-                .locatedBy("//div[text()='{0}']/ancestor::div[@class='inventory_item']//button")
-                .of(producto);
-
-        actor.attemptsTo(Click.on(botonAgregar));
+        actor.attemptsTo(
+            Click.on(ProductosPage.BTN_AGREGAR.of(producto))
+        );
     }
 }
